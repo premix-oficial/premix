@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ - Perguntas Frequentes</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/faq.css">
+  <link rel="icon" href="../img/Logo-Reduzida-Branca.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+  <div class="logo">
+    <img src="../img/logobranca.png" alt="logo premix">
+  </div>
+  <div class="menu-e-botao">
+    <nav class="nav">
+      <ul>
+        <li><a href="../index.html" class="nav-tab home-tab">Home</a></li>
+        <li><a href="faq.html" class="nav-tab faq-tab">FAQ</a></li>
+        <li><a href="cadastro.html" class="nav-tab cadastro-tab">Cadastro</a></li>
+      </ul>
+    </nav>
+    <a href="download.html" class="download-button">Download</a>
+  </div>
+</header>
+
+  <!-- CONTEÚDO -->
+  <main class="container">
+    <h1>Perguntas Frequentes</h1>
+
+    <div class="faq-item">
+      <button class="faq-question">Como posso criar minha conta?</button>
+      <div class="faq-answer">
+        <p>Para criar sua conta, clique em "Inscrever-se" no menu e preencha os campos obrigatórios. Em seguida, confirme seu e-mail para ativar a conta.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">O serviço é gratuito?</button>
+      <div class="faq-answer">
+        <p>Oferecemos um plano gratuito com recursos limitados e planos pagos com funcionalidades avançadas.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">Posso usar em dispositivos móveis?</button>
+      <div class="faq-answer">
+        <p>Sim! Nosso sistema é totalmente responsivo e pode ser acessado via smartphones e tablets.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">Como entro em contato com o suporte?</button>
+      <div class="faq-answer">
+        <p>Você pode acessar a página "Contate-nos" e preencher o formulário. Nossa equipe responderá em até 24 horas úteis.</p>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Script para abrir/fechar respostas
+    const questions = document.querySelectorAll(".faq-question");
+    questions.forEach(q => {
+      q.addEventListener("click", () => {
+        q.classList.toggle("active");
+        const answer = q.nextElementSibling;
+        if (answer.style.maxHeight) {
+          answer.style.maxHeight = null;
+        } else {
+          answer.style.maxHeight = answer.scrollHeight + "px";
+        }
+      });
+    });
+  </script>
+<script>
+(async function() {
+  const container = document.getElementById('header');
+  if (!container) return;
+
+  const isInPages = window.location.pathname.includes('/pages/');
+  const headerUrl = isInPages ? '../header.html' : 'header.html';
+
+  try {
+    const res = await fetch(headerUrl);
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const html = await res.text();
+    container.innerHTML = html;
+
+    // Se estivermos em /pages/, prefixa '../' em URLs relativas dentro do header
+    if (isInPages) {
+      const toFix = [
+        { sel: 'img', attr: 'src' },
+        { sel: 'a', attr: 'href' },
+        { sel: 'link', attr: 'href' },
+        { sel: 'script', attr: 'src' }
+      ];
+      toFix.forEach(({sel, attr}) => {
+        container.querySelectorAll(sel).forEach(el => {
+          const val = el.getAttribute(attr);
+          if (!val) return;
+          if (val.startsWith('http') || val.startsWith('/') || val.startsWith('../') || val.startsWith('data:')) return;
+          el.setAttribute(attr, '../' + val);
+        });
+      });
+    }
+  } catch (err) {
+    console.error('Não foi possível carregar header:', err);
+
+    // Fallback simples (funciona quando abre com file://)
+    if (isInPages) {
+      container.innerHTML = `
+        <header class="header">
+          <div class="logo"><img src="../img/logobranca.png" alt="logo premix"></div>
+          <div class="menu-e-botao">
+            <nav class="nav"><ul>
+              <li><a href="../index.html">Home</a></li>
+              <li><a href="faq.html">FAQ</a></li>
+              <li><a href="cadastro.html">Cadastro</a></li>
+            </ul></nav>
+            <a href="download.html" class="download-button">Download</a>
+          </div>
+        </header>
+      `;
+    } else {
+      container.innerHTML = `
+        <header class="header">
+          <div class="logo"><img src="img/logobranca.png" alt="logo premix"></div>
+          <div class="menu-e-botao">
+            <nav class="nav"><ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="pages/faq.html">FAQ</a></li>
+              <li><a href="pages/cadastro.html">Cadastro</a></li>
+            </ul></nav>
+            <a href="pages/download.html" class="download-button">Download</a>
+          </div>
+        </header>
+      `;
+    }
+  }
+})();
+</script>
+
+</body>
+</html>

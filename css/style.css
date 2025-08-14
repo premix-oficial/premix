@@ -1,0 +1,481 @@
+/* Lembrete: class(.) id(#) */
+/* Código padrão */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  background-color: black;
+  color: #f2f2f2;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+}
+
+.header * {
+    font-size: 1rem;
+    line-height: normal;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #1e1e1e;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 20px;
+    z-index: 100;
+    border-bottom: 1px solid #333;
+}
+
+.logo img {
+    width: 120px;
+    height: auto;
+}
+
+.menu-e-botao {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav ul {
+    list-style: none;
+    display: flex;
+    gap: 5px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-tab {
+    text-decoration: none;
+    color: #cccccc;
+    font-weight: 500;
+    font-size: 0.9rem;
+    padding: 8px 16px;
+    border-radius: 4px 4px 0 0;
+    background-color: #2d2d30;
+    border: 1px solid #3e3e42;
+    border-bottom: none;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-tab:hover {
+    background-color: #37373d;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.home-tab {
+    background-color: #fbca48;
+    color: #000000;
+    border-color: #fbca48;
+}
+
+.home-tab:hover {
+    background-color: #e6b642;
+    color: #000000;
+}
+
+.faq-tab:hover {
+    border-color: #007acc;
+}
+
+.cadastro-tab:hover {
+    border-color: #c586c0;
+}
+
+.download-button {
+    background-color: #fbca48;
+    border: none;
+    color: #000000;
+    padding: 8px 16px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.download-button:hover {
+    background-color: #e6b642;
+    color: #000000;
+    text-decoration: none;
+    transform: translateY(-1px);
+}
+
+main {
+    padding-top: 60px;
+    text-align: center;
+    background-color: #1a1a1a;
+}
+
+
+/* Estilo da seção hero */
+.hero-section {
+  background-color: #1a1a1a;
+  padding: 120px 40px 60px;
+}
+
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 60px;
+}
+
+.hero-left {
+  flex: 1;
+  text-align: left;
+}
+
+.hero-left h1 {
+  font-size: 2.2rem;
+  font-weight: 500;
+  line-height: 1.4;
+  color: white;
+  margin-bottom: 30px;
+}
+
+.hero-right {
+  flex: 1;
+  text-align: center;
+}
+
+.hero-logo {
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+  opacity: 0.9;
+}
+
+/*Estilo do botão*/
+.botao{
+  display: inline-block;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  padding: 20px 24px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: black;
+  background-color: #fbc531;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.botao:hover{
+  background-color: #d4a821;
+  transform: scale(1.05);
+  text-decoration: none;
+  color: white;
+}
+
+/*Estilo cards*/
+.cards{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  padding: 60px 40px;
+  background-color: #0f0f0f;
+  text-align: center;
+}
+
+/*.card {
+  background-color: #1a1a1a;
+  padding: 30px 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(251, 197, 49, 0.2);
+  transition: transform 0.3s;
+}*/
+.card{
+  background-color: #1a1a1a;
+  padding: 30px 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(251, 197, 49, 0.2);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid transparent;
+}
+
+.card:hover{
+  transform: translateY(-8px);
+  border-color: #fbca48;
+  box-shadow: 0 0 20px rgba(251, 196, 72, 0.4);
+  background-color: #1f1f1f;
+}
+
+.card img{
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 20px auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.card:hover img {
+  transform: scale(1.1);
+}
+
+.card h3{
+  margin-bottom: 10px;
+  color: #fbc531;
+  font-size: 1.2rem;
+}
+
+.card p{
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: #ccc;
+}
+
+/*Estilo carousel*/
+.carousel{
+  max-width: 950px;      /* Reduz a largura total */
+  height: 550px;         /* Define a altura máxima */
+  margin: 40px auto;     /* Centraliza e dá margem vertical */
+  border-radius: 12px;   /* Opcional: bordas arredondadas */
+  overflow: hidden;      /* Garante que a imagem não ultrapasse */
+}
+
+.carousel img{
+  height: 100%;          /* Ajusta a imagem à altura definida */
+  object-fit: cover;     /* Corta de forma proporcional */
+}
+
+.carrossel-com-texto{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  padding: 60px 80px;
+  background-color: #0f0f0f;
+  flex-wrap: wrap; /* Torna responsivo */
+}
+
+.texto-lateral{
+  flex: 1;
+  max-width: 500px;
+  color:#fbc531;
+  text-align: left;
+}
+
+.texto-lateral h2{
+  font-size: 2rem;
+  color: #fbc531;
+  margin-bottom: 20px;
+}
+
+.texto-lateral h5{
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: #ccc;
+}
+
+.terminal-wrapper {
+  flex: 1;
+  max-width: 600px;
+  height: 400px;
+}
+
+.terminal-window {
+  background-color: #1e1e1e;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  height: 100%;
+  border: 1px solid #333;
+}
+
+.terminal-header {
+  background-color: #2d2d30;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #333;
+}
+
+.terminal-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.terminal-buttons span {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.btn-close {
+  background-color: #ff5f57;
+}
+
+.btn-minimize {
+  background-color: #ffbd2e;
+}
+
+.btn-maximize {
+  background-color: #28ca42;
+}
+
+.terminal-title {
+  color: #cccccc;
+  font-size: 0.85rem;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.terminal-body {
+  padding: 20px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.terminal-line {
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.prompt {
+  color: #fbca48;
+  font-weight: bold;
+}
+
+.command {
+  color: #4ec9b0;
+}
+
+.success {
+  color: #4ec9b0;
+}
+
+.text {
+  color: #cccccc;
+}
+
+.cursor {
+  color: #fbca48;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/*Estilo footer*/
+.footer{
+  background-color: #1a1a1a;
+  color: #f2f2f2;
+  padding: 20px 15px 12px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.footer-content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.footer-logo img{
+  width: 150px;
+  height: auto;
+}
+
+.footer-links{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+}
+
+.footer-links a{
+  color: #f2f2f2;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover{
+  color: #fbca48;
+  text-decoration: none;
+}
+
+.footer-social a{
+  margin: 0 8px;
+}
+
+.footer-social img{
+  width: 24px;
+  height: 24px;
+  filter: brightness(0) invert(1);
+  transition: all 0.3s ease;
+}
+
+.footer-social img:hover{
+  transform: scale(1.2);
+  filter: brightness(0) invert(1) sepia(1) saturate(10000%) hue-rotate(35deg);
+}
+
+.footer-bottom{
+  margin-top: 20px;
+  border-top: 1px solid #333;
+  padding-top: 12px;
+  font-size: 0.8rem;
+  color: #aaa;
+}
+
+/*Estilo funcionalidades*/
+.funcionalidade{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #0f0f0f;
+  padding: 60px 80px;
+  gap: 40px;
+}
+
+.func-texto{
+  flex: 1;
+  text-align: left;
+}
+
+.func-texto h2{
+  font-size: 2rem;
+  color: #fbc531;
+  margin-bottom: 20px;
+}
+
+.func-texto p{
+  font-size: 1rem;
+  color: #ccc;
+  line-height: 1.5;
+}
+
+.func-img{
+  flex: 1;
+  text-align: center;
+}
+
+.func-img img{
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(251, 197, 49, 0.2);
+}
